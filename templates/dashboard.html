@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | shortyy.ml</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Langar&family=Poppins&family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+        .is-close {
+            text-align: center;
+        }
+        .is-close .hidden-item {
+            display: none;
+        }
+    </style>
+</head>
+<body style="background: #111824;">
+    <div class="p-5">
+        <div class="flex bg-gray-300" x-data="{isClose: true, toggle: true}">
+            <div class="flex-1 h-full min-h-screen">
+                <!-- Header -->
+                <div class="p-3 py-5 bg-gray-800">
+                    <h1 class="text-center text-white text-4xl" style="font-family: 'Langar', cursive; letter-spacing: 2px;">ADMIN DASHBOARD</h1>
+                    <h1 class="text-center text-white mt-2" style="font-family: 'Langar', cursive; letter-spacing: 1.5px;">LOGGED IN AS: {{ params["admin_user"].upper() }}</h1>
+                </div>
+                <!-- Header Ends -->
+                <!-- Content -->
+                <div class="bg-gray-900 sm:m-3 sm:p-3" style="min-height: calc(100vh - 75px);">
+                    <!-- Admin Buttons -->
+                    <div class="w-full text-center mx-auto">
+                        <a href="/" style="font-family: 'Poppins', sans-serif;"><button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline">HOME</button></a>
+                        <a href="/logout" style="font-family: 'Poppins', sans-serif;"><button type="button" class="border border-red-500 text-red-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-red-600 focus:outline-none focus:shadow-outline">LOGOUT</button></a>
+                    </div>
+                    <!-- Admin Buttons Ends -->
+
+                    <!-- component -->
+                    <div>
+                        <table class="min-w-full table-auto mt-6">
+                            <thead class="justify-between">
+                            <tr class="bg-gray-800">
+                                <th class="px-16 py-2">
+                                <span class="text-gray-300" style="font-family: 'Ubuntu', sans-serif;">URL Slug</span>
+                                </th>
+                                <th class="px-16 py-2">
+                                <span class="text-gray-300" style="font-family: 'Ubuntu', sans-serif;">Original URL</span>
+                                </th>
+                                <th class="px-16 py-2">
+                                <span class="text-gray-300" style="font-family: 'Ubuntu', sans-serif;">Delete</span>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody class="bg-gray-200">
+                            <!-- Table Row -->
+                            {% for link in links %}
+                            <tr class="bg-gray-700 border-4 border-gray-600 text-center text-gray-200 md:text-sm">
+                                <td>
+                                <span class="text-center ml-2 font-semibold" style="font-family: 'Poppins', sans-serif; font-weight: 500;">/{{link.url_slug}}</span>
+                                </td>
+                                <td class="px-8 py-2">
+                                <span style="font-family: 'Poppins', sans-serif; font-weight: 500;"><a href="{{link.original_url}}" target="_blank">{{link.original_url[0:23]}}...</a></span>
+                                </td>
+                                <td class="px-8 py-2">
+                                <a href="/delete/{{link.url_slug}}"><button class="bg-red-500 text-white px-4 py-2 border-red-500 rounded-md hover:bg-red-500 hover:border-red-400 hover:text-white" style="font-family: 'Poppins', sans-serif;">DELETE</button></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            <!-- Table Row Ends -->
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                <!-- Content Ends -->
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>shortyy.ml | BRAND URL SHORTENER</title>
+    
+    <!-- META TAGS & SEO -->
+    <meta name="title" content="shortyy.ml | BRAND URL SHORTENER">
+    <meta name="description" content="shortyy.ml is a url shortener that allows you to shorten your links and giving them a brand url. Its completely free. But if your links are found to be violating our terms and services we may remove the links from our database. This is started as a project. The source code of this will be available on our github repository. This is made in Python using flask as web framework and postgres as database and tailwind as CSS framework. You can support us continue this project as always free by donating us.">
+    <meta name="author" content="Rudransh Joshi">
+    <meta name="keywords" content="shortyy,shortyy.ml,link,shortener,linkshortener,free,opensource,link-shortener,shortyy.ml,freeurlshortener,bitly,bit.ly,brand,brandlink,brandlinkshortener,Rudransh Joshi,Rudransh,Fire Head,Mr.Streamer,Freelancer,Web-Developer,Web-Designer,Youtuber,GitHub,Discord,FireHead90544,Graphic Designer,Video Editor,Python,Programmer,Unity,Unity2D,Discord,Joshi,Bots,Bot,Dev,Developer.Devlopment,Designer,Graphics,Graphic,Youtube">
+  
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.shortyy.ml/">
+    <meta property="og:title" content="shortyy.ml | BRAND URL SHORTENER">
+    <meta property="og:description" content="shortyy.ml is a url shortener that allows you to shorten your links and giving them a brand url. Its completely free. But if your links are found to be violating our terms and services we may remove the links from our database. This is started as a project. The source code of this will be available on our github repository. This is made in Python using flask as web framework and postgres as database and tailwind as CSS framework. You can support us continue this project as always free by donating us.">
+    <meta property="og:image" content="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="text-gray-500 body-font" style="background: #111824;">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+            <img alt="shortyy.ml" class="rounded" style="height: 64px;" src="{{ url_for('static', filename='logo.png') }}">
+            <span class="ml-3 text-xl">shortyy.ml</span>
+            </a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a class="mr-5 hover:text-white" href="#">Home</a>
+            <a class="mr-5 hover:text-white" href="https://www.rudranshjoshi.me/" target="_blank">About Developer</a>
+            <a class="mr-5 hover:text-white" href="https://github.com/FireHead90544/shortyy" target="_blank">Source Code</a>
+            </nav>
+            <a href="https://paypal.me/brijesh3471" target="_blank"><button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">Support Us By Donating!
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+            </button></a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="text-gray-500 bg-gray-900 body-font overflow-hidden">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <img alt="shortyy.ml" class="lg:w-1/2 w-full lg:h-auto h-64 object-scale-down object-center rounded" src="{{ url_for('static', filename='logo.png') }}">
+            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 mt-9">
+                <h2 class="text-sm title-font text-white text-bold tracking-widest mb-1">shortyy.ml</h2>
+                <h1 class="text-white text-3xl title-font font-medium mb-8">A Brand URL Shortener</h1>
+                <p class="leading-relaxed text-white">shortyy.ml is a url shortener that allows you to shorten your links and giving them a brand url. Its completely free. But if your links are found to be violating our terms and services we may remove the links from our database. This is started as a project. The source code of this will be available on our github repository. This is made in Python using flask as web framework and postgres as database and tailwind as CSS framework. You can support us continue this project as always free by donating us. Shorten your URL Below :)</p>
+                
+                <form action="/add", method="POST" id="shortenForm">
+                    <div class="bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col mt-6">
+
+                        <div class="mb-4">
+                            <label class="block text-gray-200 text-sm font-bold mb-2" for="url">Original URL</label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800" name="url" id="url" type="url" placeholder="https://youtube.com/mrstreamer" required>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-gray-200 text-sm font-bold mb-2" for="slug">Brand URL Slug</label>
+                            <input class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-gray-800 mb-3" name="slug" id="slug" type="text" placeholder="subscribe" required>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <button type="submit" class="bg-white hover:bg-white-200 text-gray-800 font-semibold hover:text-gray-900 py-2 px-4 border border-blue hover:border-transparent rounded m-auto">Shorten!</button>
+                        </div>
+
+                    </div>
+                </form>
+
+                <!-- Message Flashing -->
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="-m-2 text-center">
+                    <div class="p-2">
+                        <div class="inline-flex items-center bg-white leading-none text-{{ messages[0] }}-600 rounded-full p-2 shadow text-teal text-sm">
+                        <span class="inline-flex bg-{{ messages[0] }}-600 text-white rounded-full h-6 px-3 justify-center items-center">{{ messages[1] }}</span>
+                        <span class="inline-flex px-2">{{ messages[2] }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endwith %}
+                <!-- Message Flashing Ends -->
+
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-gray-500 body-font" style="background: #111824;">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
+            <img alt="shortyy.ml" class="rounded" style="height: 50px;" src="{{ url_for('static', filename='logo.png') }}">
+            <span class="ml-3 text-xl">shortyy.ml</span>
+            </a>
+            <p class="text-sm text-gray-600 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4 hover:text-white">© 2020 shortyy.ml —
+            <a href="https://github.com/FireHead90544" class="text-gray-500 ml-1 hover:text-white" target="_blank" rel="noopener noreferrer">&lt;/Rudransh Joshi&gt;</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <a class="text-gray-600 hover:text-white" href="https://www.facebook.com/mrstreameryt" target="_blank">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+            </a>
+            <a class="ml-3 text-gray-600 hover:text-white" href="https://www.github.com/FireHead90544" target="_blank">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                </svg>
+            </a>
+            <a class="ml-3 text-gray-600 hover:text-white" href="https://www.instagram.com/mrstreamer_yt" target="_blank">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+            </a>
+            <a class="ml-3 text-gray-600 hover:text-white" href="https://www.discord.gg/dN66r3D" target="_blank">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                <path stroke="none" d="M20.222 0c1.406 0 2.54 1.137 2.607 2.475V24l-2.677-2.273l-1.47-1.338l-1.604-1.398l.67 2.205H3.71c-1.402 0-2.54-1.065-2.54-2.476V2.48C1.17 1.142 2.31.003 3.715.003h16.5L20.222 0zm-6.118 5.683h-.03l-.202.2c2.073.6 3.076 1.537 3.076 1.537c-1.336-.668-2.54-1.002-3.744-1.137c-.87-.135-1.74-.064-2.475 0h-.2c-.47 0-1.47.2-2.81.735c-.467.203-.735.336-.735.336s1.002-1.002 3.21-1.537l-.135-.135s-1.672-.064-3.477 1.27c0 0-1.805 3.144-1.805 7.02c0 0 1 1.74 3.743 1.806c0 0 .4-.533.805-1.002c-1.54-.468-2.14-1.404-2.14-1.404s.134.066.335.2h.06c.03 0 .044.015.06.03v.006c.016.016.03.03.06.03c.33.136.66.27.93.4a8.18 8.18 0 0 0 1.8.536c.93.135 1.996.2 3.21 0c.6-.135 1.2-.267 1.8-.535c.39-.2.87-.4 1.397-.737c0 0-.6.936-2.205 1.404c.33.466.795 1 .795 1c2.744-.06 3.81-1.8 3.87-1.726c0-3.87-1.815-7.02-1.815-7.02c-1.635-1.214-3.165-1.26-3.435-1.26l.056-.02zm.168 4.413c.703 0 1.27.6 1.27 1.335c0 .74-.57 1.34-1.27 1.34c-.7 0-1.27-.6-1.27-1.334c.002-.74.573-1.338 1.27-1.338zm-4.543 0c.7 0 1.266.6 1.266 1.335c0 .74-.57 1.34-1.27 1.34c-.7 0-1.27-.6-1.27-1.334c0-.74.57-1.338 1.27-1.338z"></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+            </a>
+            </span>
+        </div>
+    </footer>
+</body>
+<!-- <script>
+    var form = document.getElementById("shortenForm");
+    function handleForm(event) { event.preventDefault(); } 
+    form.addEventListener('submit', handleForm);
+</script> -->
+</html>

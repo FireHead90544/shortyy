@@ -1,0 +1,7 @@
+{
+  "params": {
+    "db_uri": "db_engine://db_username:db_password@db_host:db_port/db_name",
+    "admin_user": "admin_user_name",
+    "admin_password": "admin_user_password"
+  }
+}
