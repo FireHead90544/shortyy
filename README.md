@@ -11,6 +11,7 @@
 - Secure
 - Made In Python (Flask)
 - Database Used - PostgreSQL
+- A Dashboard
 
 
 
@@ -35,6 +36,10 @@
 
 
 
+## Contributors - Awesome Contributors Of This Project Go Check Them Out.
+- Rudransh Joshi - [FireHead90544](https://github.com/FireHead90544)
+
+
 ## LICENSE
 - This project and repository has been licensed under **GNU General Public License v3.0** LICENSE can be found **[here](https://github.com/FireHead90544/shortyy/blob/main/LICENSE)** + You can use this anywhere but you must provide its source and give the credits to this repository.
 
@@ -42,6 +47,11 @@
 
 ## Future Plans
 - We are planning to add an api related system which you can use to add or delete links to the database using GET/POST/DELETE etc. requests, so if you want to contribute, it will be highly appreciated.
+
+
+
+## Special Thanks To [Cyber Efficient](https://www.cyberefficient.io/) For Supporting This Project Which Made It Possibe To Host It.
+
 
 
 # THANK YOU
