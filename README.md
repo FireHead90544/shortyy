@@ -36,7 +36,7 @@
 
 
 
-## Contributors - Awesome Contributors Of This Project Go Check Them Out.
+## Contributors - Awesome Contributors Of This Project (Check Them Out)
 - Rudransh Joshi - [FireHead90544](https://github.com/FireHead90544)
 
 
