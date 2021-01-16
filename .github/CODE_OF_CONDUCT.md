@@ -1,4 +1,4 @@
-  # Code of Conduct for _shortyy_ GitHub Repository
+  # Code of Conduct for [shortyy](https://github.com/FireHead90544/shortyy) GitHub Repository
   - Be welcoming and open-minded.
   - Respect each other.
   - No Threats of violence
