@@ -1,4 +1,5 @@
-# shortyy <img src="/assets/logo.png" width=10% height=10%>
+# shortyy
+<img src="/assets/logo.png" width=10% height=10%>
 [shortyy - A Brand URL Shortener Made Using Flask &amp; PostgreSQL](https://shortyy.ml/)
 
 
@@ -37,7 +38,8 @@
 
 
 ## Contributors - Awesome Contributors Of This Project (Check Them Out)
-- Rudransh Joshi - [FireHead90544](https://github.com/FireHead90544)
+- Rudransh Joshi - [FireHead90544](https://github.com/FireHead90544) {Developer}
+- Knoxo - [Knoxo](https://github.com/Knoxo) {Contributor}
 
 
 ## LICENSE
