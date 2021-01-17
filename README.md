@@ -1,4 +1,5 @@
 ![shortyy logo](/assets/logo.png?s=200)
+<img src="/assets/logo.png" width=50% height=50%>
 # shortyy
 [shortyy - A Brand URL Shortener Made Using Flask &amp; PostgreSQL](https://shortyy.ml/)
 
