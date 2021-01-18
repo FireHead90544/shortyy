@@ -1,5 +1,7 @@
 # shortyy
+
 <img src="/assets/logo.png" width=10% height=10%>
+
 [shortyy - A Brand URL Shortener Made Using Flask & PostgreSQL](https://shortyy.ml/)
 
 
