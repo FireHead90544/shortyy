@@ -101,7 +101,8 @@ def add():
             db.session.commit()
             flash("green")
             flash("Success")
-            flash(f"Shortened your url as shorty.ml/{slug}")
+            flash("Shortened your url as:")
+            flash(f"shortyy.ml/{slug}")
             return redirect(url_for("home"))
         else:
             flash("red")
